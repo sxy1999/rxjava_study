@@ -15,6 +15,7 @@ import rx.observables.ConnectableObservable;
 
 public class ReactiveSumApp {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 
 		System.out.println("Reacitve Sum. Type 'a: <number>' and 'b: <number>' to try it.");
