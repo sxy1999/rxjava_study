@@ -1,5 +1,8 @@
 package com.donbest.rxjava;
 
+import java.util.Arrays;
+import java.util.List;
+
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action0;
@@ -9,8 +12,8 @@ public class SimpleCreationExample {
 
 	public static void main(String[] args) {
 
-//		List<String> list = Arrays.asList("one", "two", "three", "four", "five");
-//		Observable<String> observable = Observable.from(list);
+		List<String> list = Arrays.asList("one", "two", "three", "four", "five");
+		Observable<String> listObservable = Observable.from(list);
 		Observable<String> obs=Observable.just("Hello world!");
 		obs.subscribe(s -> System.out.println(s));
 		Observable<String> observable= Observable.create(new Observable.OnSubscribe<String>() {
@@ -38,5 +41,7 @@ public class SimpleCreationExample {
 				System.out.println("We've finished.");
 			}
 		});
+		
+		listObservable.filter(s->s.contains("t")).forEach(s->System.out.println(s));;
 	}
 }
